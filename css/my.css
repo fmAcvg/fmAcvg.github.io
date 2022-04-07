@@ -81,7 +81,7 @@ body{
 
 }
 
-@media only screen and (max-width: 620px) {
+@media only screen and (max-width: 1880px) {
     /* For mobile phones: */
     .card-group {
         width: 100%;
