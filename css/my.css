@@ -2,6 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@900&display=swap');
 {
+    scroll-behavior: smooth;
     width: 600%;
     overflow-x: hidden;
     margin-outside:0% ;
