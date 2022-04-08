@@ -1,0 +1,29 @@
+{
+  "name": "untitled",
+  "version": "1.0.0",
+  "dependencies": {
+    "@octokit/core": "^3.6.0",
+    "cheerio": "^1.0.0-rc.10",
+    "github-scraper": "^7.0.1",
+    "json2csv": "^5.0.7",
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.9"
+  },
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fmAcvg/Lars_me.webside.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fmAcvg/Lars_me.webside/issues"
+  },
+  "homepage": "https://github.com/fmAcvg/Lars_me.webside#readme",
+  "description": ""
+}

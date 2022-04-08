@@ -29,7 +29,7 @@ body #First{
 
 }
 body{
-    background-color: #000;
+    background-color: #000000;
 }
 
 .main{
@@ -89,6 +89,9 @@ body{
     }
     svg{
         display: none;
+    }
+    .gitcard{
+        width: 100% !important;
     }
 }
 #firstfield h4{
