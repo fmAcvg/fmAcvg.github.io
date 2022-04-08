@@ -1,5 +1,5 @@
 
-
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@900&display=swap');
 {
     scroll-behavior: smooth;
@@ -42,7 +42,7 @@ body{
     background-color: #fff;
     border-radius: 50%;
     box-shadow: -24vw -44vh 2px 2px #fff,38vw -4vh 0px 0px #fff,-20vw -48vh 1px 2px #fff,-39vw 38vh 3px 1px #fff,-42vw -11vh 0px 3px #fff,12vw 15vh 3px 3px #fff,42vw 6vh 3px 2px #fff,-8vw 9vh 0px 2px #fff,34vw -38vh 1px 0px #fff,-17vw 45vh 3px 1px #fff,22vw -36vh 3px 2px #fff,-42vw 1vh 1px 0px #fff;
-    animation: zoom 3s alternate infinite;
+    animation: zoom 10s alternate infinite;
 }
 
 @keyframes zoom {
@@ -94,6 +94,9 @@ body{
     .gitcard{
         width: 100% !important;
     }
+    h2{
+        font-size: 170%;
+    }
 }
 #firstfield h4{
     color: #646464;
@@ -125,7 +128,7 @@ body{
 
 #secondfield h2{
     color: white;
-    margin: 20px;
+
 
 
 }
@@ -135,4 +138,15 @@ body{
     top:350%;
     width: 100%;
     height: 50%;
+}
+.logo{
+    width: 20px!important;
+    height: 20px !important;
+}
+h2{
+    margin: 20px!important;
+}
+
+.bi::before {
+    font-size: 100px;
 }

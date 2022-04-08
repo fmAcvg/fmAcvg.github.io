@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "@octokit/core": "^3.6.0",
+    "bootstrap-icons": "^1.8.1",
     "cheerio": "^1.0.0-rc.10",
     "github-scraper": "^7.0.1",
     "json2csv": "^5.0.7",
