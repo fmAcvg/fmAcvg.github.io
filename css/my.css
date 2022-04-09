@@ -130,7 +130,7 @@ body{
     font-size: 360%;
     font-weight: bold;
     margin-top: 5%;
-    background: -webkit-linear-gradient(#AFEEEE, #CEF6F5, #EEF8F7, #D2FFD5, #B9FFB9, #8BF992);
+    background: -webkit-linear-gradient(45deg, #16BFFD, #CB3066);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
@@ -159,4 +159,48 @@ h2{
 
 .bi::before {
     font-size: 100px;
+}
+
+
+
+.btn-grad {background-image: linear-gradient(to right, #2C3E50 0%, #4CA1AF  51%, #2C3E50  100%)}
+.btn-grad {
+    margin: 2px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    width: 30%;
+    height: 10%;
+}
+
+.btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: rgba(250, 250, 250, 0);
+    transition-duration: 3s;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #d7d7d7;
 }
