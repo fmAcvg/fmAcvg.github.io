@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@900&display=swap');
 {
     scroll-behavior: smooth;
-    width: 600%;
     overflow-x: hidden;
     margin-outside:0% ;
     box-sizing: border-box;
@@ -11,13 +10,14 @@
 }
 header{
     height: 10%;
-    widht: 1920px;
+    widht: 100%;
     position: fixed;
     top: 0px;
     left: 0px;
 
 }
 body{
+    width: 100%;
     align-content: center;
 }
 body #First{
@@ -84,7 +84,6 @@ body{
 }
 
 @media only screen and (max-width: 1880px) {
-    /* For mobile phones: */
     .card-group {
         width: 100%;
     }
@@ -92,7 +91,11 @@ body{
         display: none;
     }
     .gitcard{
-        width: 100% !important;
+        margin: 15%;
+        width: 90% !important;
+    }
+    .container-fluid{
+        margin: 30% 10% 0% 0%!important;
     }
     h2{
         font-size: 170%;
@@ -104,6 +107,10 @@ body{
     font-size: 360%;
     font-weight: bold;
     margin-top: 5%;
+    font-size: 72px;
+    background: -webkit-linear-gradient(#66CCCC, #4CAAC2, #3284B3, #355AA0, #393E86, #2F2B64);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 
 }
 
@@ -123,6 +130,9 @@ body{
     font-size: 360%;
     font-weight: bold;
     margin-top: 5%;
+    background: -webkit-linear-gradient(#AFEEEE, #CEF6F5, #EEF8F7, #D2FFD5, #B9FFB9, #8BF992);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 
 }
 
