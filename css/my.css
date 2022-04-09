@@ -98,7 +98,14 @@ body{
         margin: 30% 10% 0% 0%!important;
     }
     h2{
-        font-size: 170%;
+        font-size: 170%!important;
+    }
+    h4{
+        font-size: 280%!important;
+    }
+    #First{
+        top:20%;
+        position: absolute;
     }
 }
 #firstfield h4{
