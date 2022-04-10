@@ -1,19 +1,24 @@
-let section = document.getElementsByClassName('.sec');
-console.log(section)
-let menu = document.querySelectorAll("#sidenav span");
-window.onscroll = () => {
-    section.forEach(i => {
-        let top = window.scrollY;
-        let offset = i.offsetTop - 150;
-        let height = i.offsetHeight;
-        console.log(top)
-        let id = i.getAttribute('id');
-        if (top >= offset && top < offset + height) {
-            menu.forEach(link => {
+let section = document.getElementsByClassName('sec');
+let menu = document.getElementsByClassName("dot");
+window.onwheel = (event) => {
+    let index = 0;
+    for (let i = 0; i<section.length;i++){
+        let element = section[i];
+        let top = event.pageY - event.y;
+        let offset = element.offsetTop - 150;
+
+        let height = element.offsetHeight;
+        if (top >= offset) {
+            console.log(offset)
+            Array.from(menu).forEach((link,j) => {
                 link.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ']')
-                    .classList.add('active');
+
+                if (j===i){
+                    link.classList.add("active");
+                }
             });
         }
-    });
+
+        index ++;
+    }
 };
