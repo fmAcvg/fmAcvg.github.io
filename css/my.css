@@ -251,21 +251,27 @@ h2{
     opacity: 1!important;
 }
 
-.showdots{
+#sidenav{
     z-index: 3000;
     position: fixed;
-    right: 0.2%;
+    right: 0%;
     top: 50%;
-    width: 5%;
-    height: 13%;
 
 }
 .dot {
-    height: 10px;
-    width: 10px;
-    z-index: 3000;
-    margin: 0%;
-    background-color: #ffffff;
+    margin-top: 12px;
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
     border-radius: 50%;
-    position: relative;
+    display: inherit;
+}
+.dot.active {
+    margin-top: 12px;
+    height: 25px;
+    width: 25px;
+    text-align: left;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inherit;
 }
