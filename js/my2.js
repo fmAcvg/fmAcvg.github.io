@@ -1,40 +1,23 @@
-let section = document.getElementsByClassName('sec');
-let menu = document.getElementsByClassName("dot");
+"use strict";
 
-window.addEventListener("DOMContentLoaded", function() {
-  console.log(section.length)
-  Array.from(section).forEach(function(element) {
-    console.log(element.offsetTop);
-  });
-});
+const pages = document.getElementsByClassName("sec");
+const navHeight = document.getElementById("nav").clientHeight;
+const dots = document.getElementsByClassName("dot");
 
-window.onwheel = (event) => {
-    let index = 0;
-    for (let i = 0; i<section.length;i++){
-        let element = section[i];
-        let top = event.pageY - event.y;
-        let offset = element.offsetTop - 150;
-        let height = element.offsetHeight;
-        if (i === 0 && top < offset) {
-          Array.from(menu).forEach((link, j) => {
-            if (j === i) {
-              link.classList.add("active");
-            } else {
-              link.classList.remove("active");
+var active = 0;
+
+window.addEventListener("scroll", function() {
+    const offset = innerHeight / -2 + navHeight;
+    for (let i = 0; i < pages.length; i ++) {
+        if (scrollY < pages[i].offsetTop + pages[i].clientHeight + offset) {
+            if (i !== active) {
+                dots[active].classList.remove("active");
+                dots[i].classList.add("active");
+
+                active = i;
             }
-          });
-          break;
-        }
-        if (top >= offset && top < offset + height) {
-            Array.from(menu).forEach((link,j) => {
-                link.classList.remove('active');
 
-                if (j===i + 1){
-                    link.classList.add("active");
-                }
-            });
+            break;
         }
-
-        index ++;
     }
-};
+});

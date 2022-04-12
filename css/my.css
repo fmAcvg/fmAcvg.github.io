@@ -265,6 +265,7 @@ h2{
     background-color: #bbb;
     border-radius: 50%;
     display: inherit;
+    transition-duration: 0.2s;
 }
 .dot.active {
     margin-top: 12px;
