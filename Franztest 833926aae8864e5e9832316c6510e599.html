@@ -1,0 +1,672 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Franztest</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="833926aa-e886-4e5e-9832-316c6510e599" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">😢</span></div><h1 class="page-title">Franztest</h1></header><div class="page-body"><p id="dbed05ce-fcb8-4947-b27d-3c59a56ba14f" class=""><mark class="highlight-gray"><span style="border-bottom:0.05em solid"><strong>Vokabeln</strong></span></mark></p><p id="b2511933-392f-4340-bcaf-c0fd8f4fb037" class=""><div class="indented"><p id="dbc765c1-b76f-45c7-9090-03de5ff7be86" class="">
+</p></div></p><ul id="eedf2aa2-604b-4ce9-bad0-99f19074083c" class="toggle"><li><details open=""><summary>ein Gericht</summary><p id="5a85b638-3252-4145-ad27-c2fb15b1ac57" class="">un plat</p></details></li></ul><ul id="651781a1-73db-4389-9f38-874125132e8a" class="toggle"><li><details open=""><summary>Das frühstück</summary><p id="f1820d7b-b2f1-4e8b-85dd-cf8bd4947954" class="">le petit-dejeuner</p></details></li></ul><ul id="37ea7701-6921-4a44-ad99-760f628015ee" class="toggle"><li><details open=""><summary>ein kollege</summary><p id="9a281e56-0106-4891-83e5-04a47d1a7799" class="">un collegue</p></details></li></ul><ul id="5cd0c62c-9ef1-425c-a501-b845b2432e82" class="toggle"><li><details open=""><summary>was haltet ihr davon?</summary><p id="fc7527d2-e845-4e3f-85c6-75a6fe88d547" class="">Qu’est-ce que vous en pensez</p></details></li></ul><ul id="39b39511-4bd1-4eac-b406-cc3c4473ce8e" class="toggle"><li><details open=""><summary>ein steak mit pommes</summary><p id="5cbbe1ef-4e43-466d-ae32-da19e1c879d6" class="">un steak-frites</p></details></li></ul><ul id="7d703bce-89ea-42c2-9212-6150b6f0a5d8" class="toggle"><li><details open=""><summary>eine vorspeise</summary><p id="aa0fb0d7-9354-40ac-88c2-500809be0a95" class="">une entree</p></details></li></ul><ul id="a699c697-5eca-45c8-8099-8023ffa95d06" class="toggle"><li><details open=""><summary>das öl</summary><p id="a9960be8-3dcf-4053-9a8a-443d6a087929" class="">l’huile</p></details></li></ul><ul id="293b6944-043d-4bd8-bedd-6ac148fa52f6" class="toggle"><li><details open=""><summary>eine Olive</summary><p id="af527693-4e03-4795-a54e-b4b37044a3b1" class="">une Olive</p></details></li></ul><ul id="17bcf56b-0f69-49c3-a027-b04434c643bf" class="toggle"><li><details open=""><summary>eine Salami</summary><p id="eefea118-6887-42f3-bdbe-927e6bd0f9b1" class="">un saucisson</p></details></li></ul><ul id="dd0bf97e-0a42-4ad8-983b-bf2754392159" class="toggle"><li><details open=""><summary>eine Muschel</summary><p id="011feac0-0343-4443-b3a4-f2b3ed6463d3" class="">une Moule</p></details></li></ul><ul id="e560bb55-4390-48b2-889c-a44f09bde7d3" class="toggle"><li><details open=""><summary>man braucht</summary><p id="e7d67c49-5a6d-41c7-85ed-dc47eed809c6" class="">il faut</p></details></li></ul><ul id="a42c2f24-fa5d-4945-a6b8-1f3412f282e0" class="toggle"><li><details open=""><summary>ein Nachtisch</summary><p id="304fd705-6143-418b-ad58-9fb8415bef81" class="">un dessert</p></details></li></ul><ul id="ea7502cd-f543-436d-bb8d-a0cb752b88c8" class="toggle"><li><details open=""><summary>die schockolade</summary><p id="584e318e-6720-4e32-a407-ce1569deb8b4" class="">le chocolate</p></details></li></ul><ul id="f7967af3-141d-421b-ad4a-67f1daa3ba02" class="toggle"><li><details open=""><summary>der Mond</summary><p id="f09a684a-0fc3-429f-9921-dd182dfe8b66" class="">la lune</p></details></li></ul><ul id="da8014b1-2582-4e60-a7f0-a3e051289a3f" class="toggle"><li><details open=""><summary>man muss etwas tun</summary><p id="6d29c87b-df12-4ed1-ad91-9bfca1f81236" class="">il faut faire</p></details></li></ul><ul id="d7ae9731-72d0-42c6-a78c-e9afc9ae39a2" class="toggle"><li><details open=""><summary>wer ist an der reihe</summary><p id="e9e8a66d-ce4d-4f66-8c1a-932fbed11d0c" class="">c’est a qui</p></details></li></ul><ul id="f7b407c2-ae5d-4ba0-a4b2-21f5f6621475" class="toggle"><li><details open=""><summary>ein Kilo</summary><p id="b90c7b13-61d4-4eaf-94d0-e56577e937ed" class="">un kilo</p></details></li></ul><ul id="ce5369a3-5ee0-4c3c-916d-5717297f52ee" class="toggle"><li><details open=""><summary>ein finger</summary><p id="c6788f7d-946b-4bc6-bf5d-12556def516d" class="">un doigt</p></details></li></ul><ul id="b0de7da3-967b-46e5-ba00-207ed348691e" class="toggle"><li><details open=""><summary>eine Wasserschale</summary><p id="5e8e458c-5809-4fd7-821f-d8a230fe43aa" class="">un rince-doigts</p></details></li></ul><ul id="533b6384-6a1f-4fbe-8ade-84fea6219216" class="toggle"><li><details open=""><summary>ein Liter</summary><p id="62cfd6a5-d6f4-4d89-a5ba-ec6c80947e23" class="">un litre</p></details></li></ul><ul id="9a452313-b26d-428e-ace1-77bf52c5e1b1" class="toggle"><li><details open=""><summary>leicht</summary><p id="87fa57fc-a874-499b-9bdb-6f1ed5822844" class="">facile</p></details></li></ul><ul id="453eb0d6-7e73-4b2f-8a47-da1c90246c56" class="toggle"><li><details open=""><summary>ein getränk</summary><p id="2bb4051e-8601-4491-a347-ee3fb227c7fa" class="">une boisson</p></details></li></ul><ul id="1d96f7f2-7ee4-427f-a35d-1a1832167cdc" class="toggle"><li><details open=""><summary>eine Flasche</summary><p id="3bced10c-5071-4d3f-a92d-6c0fb9cb251f" class="">une bouteille</p></details></li></ul><ul id="7db2255f-633c-4a41-9a21-48644d1ba045" class="toggle"><li><details open=""><summary>gratis</summary><p id="3050123c-6a0d-46a6-ad9f-38b9649230fe" class="">gratuit</p></details></li></ul><ul id="0b078bce-5b4c-4839-a534-e7dce0550869" class="toggle"><li><details open=""><summary>trinken</summary><p id="8c391d7b-65d8-46e3-9406-a91683189d86" class="">boire</p></details></li></ul><ul id="ba047fbd-5f68-4c50-96a7-b167857427aa" class="toggle"><li><details open=""><summary>fruchtsaft</summary><p id="e2ec63fb-356d-4b88-8478-309f2799174d" class="">un jus de fruits</p></details></li></ul><ul id="ddea0f1b-408c-4d31-b8d2-6efe30807562" class="toggle"><li><details open=""><summary>abholen</summary><p id="01db5dd4-d63b-4d83-8f4f-9e6564b74d78" class="">aller chercher</p></details></li></ul><ul id="41e9b181-15b5-42b6-a999-06d16ac5a246" class="toggle"><li><details open=""><summary>bezahlen</summary><p id="ef8a0bf5-ad8d-49de-b6d2-df6dbacab5b0" class="">payer</p></details></li></ul><ul id="244fe5fd-4add-4afc-9931-c94240c8fd30" class="toggle"><li><details open=""><summary>wie viel brauchen wir davon?</summary><p id="998c1cc5-fc55-4ba7-b1bf-573914343406" class="">Combien est-ce qu’il en faut</p></details></li></ul><ul id="0ae2abd1-c185-4527-8900-afa68fc5fecf" class="toggle"><li><details open=""><summary>ein gramm</summary><p id="65a584ea-5ed6-4e7f-8612-21ec642ce80c" class="">un gramme</p></details></li></ul><ul id="a5f0e56f-fa3f-4cfd-a637-101833adeffa" class="toggle"><li><details open=""><summary>den Tisch decken</summary><p id="562e4c7a-127c-41ab-b584-314434d2efc6" class="">mettre la table</p></details></li></ul><ul id="45bc7c0e-99d5-43ba-827d-801ab1f82371" class="toggle"><li><details open=""><summary>ein Teller</summary><p id="a08b4f56-708c-42e1-8f3b-ce1a91132c82" class="">une assiette</p></details></li></ul><ul id="2de26404-33d4-4f3d-8f8a-762a81ed0c6a" class="toggle"><li><details open=""><summary>eine Gabel</summary><p id="07edea40-25db-4395-9834-cfff6a3b1bc6" class="">une fourchette</p></details></li></ul><ul id="08136ff8-ca25-472f-b306-538d30c8ab63" class="toggle"><li><details open=""><summary>ein Messer</summary><p id="4d017ed3-bd80-411d-a4b3-173d59d63ac2" class="">un couteau</p></details></li></ul><ul id="181c5a3a-ba1c-4293-b88a-408e42cf9bfb" class="toggle"><li><details open=""><summary>ein Löffel</summary><p id="2abb0f5c-1a03-4e9b-9c12-a6e41a21e4a0" class="">une cuillere</p></details></li></ul><ul id="c08e2859-8280-46d9-9a96-9b749392df8b" class="toggle"><li><details open=""><summary>ein Glas</summary><p id="ef49a3db-005b-4c7d-ab76-96d9767259a0" class="">un verre</p></details></li></ul><ul id="68a034f1-ed5b-4845-8eb6-55938a5dbfb9" class="toggle"><li><details open=""><summary>eine Serviette</summary><p id="88ae6401-1d5f-46fc-942e-469b12565853" class="">une serviette</p></details></li></ul><ul id="d34a612d-bae6-4c8c-98dd-1252f843d089" class="toggle"><li><details open=""><summary>das brot</summary><p id="979166ac-7ec0-4d0a-8360-df18386a0c95" class="">le pain</p></details></li></ul><ul id="66696c49-4198-465e-b368-0738b438d049" class="toggle"><li><details open=""><summary>Gast</summary><p id="2c88a075-9b57-459d-be96-f0e0216eac7a" class="">un invite</p></details></li></ul><ul id="cfa7c205-fa39-4953-958e-509ecb9cd199" class="toggle"><li><details open=""><summary>hoffen</summary><p id="a3d680f6-bcb1-499b-b3f7-23b696faf3ab" class="">esperer</p></details></li></ul><ul id="4526830d-af68-42d3-a45a-eb30dbd846f6" class="toggle"><li><details open=""><summary>sicher</summary><p id="7a94deef-4824-4653-a6dd-f2b507a9eea5" class="">sur</p></details></li></ul><ul id="7a99f3ec-d374-4276-8ec3-1703d1452f7d" class="toggle"><li><details open=""><summary>die Butter</summary><p id="48a079d2-baf6-40db-9955-72e786c03f8a" class="">le beurre </p></details></li></ul><ul id="0d0feb4f-f9e5-4dc4-9289-cc54c6594c8f" class="toggle"><li><details open=""><summary>die Ruhe</summary><p id="a2537cf4-f0a6-44e5-b4d1-23b247cfa63b" class="">le silence</p></details></li></ul><ul id="e8470313-b155-4a7c-953f-f72eff5545bc" class="toggle"><li><details open=""><summary>konzentrieren</summary><p id="41334a78-06b1-458a-a49c-93f2e343d6d8" class="">concentre</p></details></li></ul><ul id="66681839-239f-439e-861e-1f77da5d9d51" class="toggle"><li><details open=""><summary>nie, niemals</summary><p id="26b8552a-8429-4141-a7bc-49ee700eae77" class="">ne .... jamais</p></details></li></ul><ul id="56d9afa7-612c-41ba-b7ef-ee9885fab65e" class="toggle"><li><details open=""><summary>noch nicht</summary><p id="cdeb2078-dd7a-4ec4-bd73-4a903b616e1c" class="">ne ... pas encore</p></details></li></ul><ul id="0d846a3d-d249-4f46-86e8-3ab7570d5dcb" class="toggle"><li><details open=""><summary>lieber mögen</summary><p id="24f2ec56-d54c-4340-af2a-4b2430cd7d6b" class="">prefere</p></details></li></ul><ul id="6f460ad2-1b7e-4b06-80dd-56a7c216819d" class="toggle"><li><details open=""><summary>zeit haben</summary><p id="66b3a602-928c-44fd-b2a2-cf16a27bcda2" class="">avoir le tempde faire</p></details></li></ul><ul id="eef2e69a-e7c8-488e-878b-1311b89dbb2a" class="toggle"><li><details open=""><summary>schlimm</summary><p id="8e11cb0e-c6cc-4534-a664-3014b9e92699" class="">grave</p></details></li></ul><ul id="5334c295-e978-4129-b31d-b9e97a54c826" class="toggle"><li><details open=""><summary>probieren</summary><p id="f5fe8225-3206-497c-88e9-1b0afa1a7770" class="">goute</p></details></li></ul><ul id="c44d7733-30ba-4d4b-baac-4109187bd769" class="toggle"><li><details open=""><summary>lachen</summary><p id="c08b4a2a-7929-47dd-9a21-84f5bac0c5ff" class="">rigoler</p></details></li></ul><ul id="03718a42-de9f-4595-bb2d-586080deaf78" class="toggle"><li><details open=""><summary>das Hauptgericht</summary><p id="ca086cfd-83af-4a52-af3c-1f4ba86fe0b0" class="">le plat principial</p></details></li></ul><ul id="a3b27209-a370-4d83-9a19-4c4f9862797d" class="toggle"><li><details open=""><summary>der Käse</summary><p id="cbaf6b67-ff6c-4254-b8a0-dfb1f36279e8" class="">le fromage</p></details></li></ul><ul id="454933e6-d400-41a4-8cf4-1eccc37d0fa5" class="toggle"><li><details open=""><summary>reichen, weiter reichen</summary><p id="efbc426b-e90d-4732-9262-157d5b6e3015" class="">passer</p></details></li></ul><ul id="1beee66e-ec63-494f-8d08-f3f06b7155f6" class="toggle"><li><details open=""><summary>wiederholen</summary><p id="80a1ea7d-132e-4029-a2f2-6f7bc558c003" class="">reprendre</p></details></li></ul><ul id="0b3123e1-c220-4670-9b41-bcf7b3403a32" class="toggle"><li><details open=""><summary>Lieblings essen</summary><p id="1ce5194a-8ae1-436a-9204-96c97e2f333a" class="">le plat prefere</p></details></li></ul><ul id="d180ba55-3dff-4d96-bd96-3130f4dcb518" class="toggle"><li><details open=""><summary>eine Tasse</summary><p id="150feb49-d16e-4324-bb1f-bbde11fc7506" class="">une tasse</p></details></li></ul><ul id="7cb2798e-3a09-4673-87ec-cd4c8f2ce4ae" class="toggle"><li><details open=""><summary>Der kafee</summary><p id="883a1165-07be-48d7-af9c-42977462d689" class="">le cafe</p></details></li></ul><p id="33570132-324a-4d75-baab-16baf1b63be2" class="">
+</p><p id="98e5b81c-3802-453d-b0b0-ffe45afc8ede" class=""><span style="border-bottom:0.05em solid"><strong><mark class="highlight-gray">Verben</mark></strong></span></p><p id="46910eef-cecf-4f83-a5d2-3002c1d30dbf" class="">
+</p><table id="71568a15-fdce-4a15-ba79-8e3af66bfb14" class="simple-table"><tbody><tr id="2073a7cb-ffbf-4187-a671-fe344be276d3"><td id="Sc~;" class="" style="width:123px">V<span style="border-bottom:0.05em solid">erb</span></td><td id="\Qhh" class="">falloir(brauchen)</td><td id=";_wB" class="">acheter(kaufen)</td><td id="DfS\" class="">payer(bezahlen)</td><td id="CpNZ" class="">boir(drinken)</td><td id="kNGu" class="">prefere(bevorzugen)</td></tr><tr id="44139f82-87a7-4af5-80c4-2fab1e9b9a8c"><td id="Sc~;" class="" style="width:123px">je</td><td id="\Qhh" class="">il me faut</td><td id=";_wB" class=""><strong>achète</strong></td><td id="DfS\" class=""><strong>paie</strong></td><td id="CpNZ" class=""><strong>bois</strong></td><td id="kNGu" class=""><strong>préfère</strong></td></tr><tr id="a7bb0acc-1b15-41c2-9787-cdbff960bfcf"><td id="Sc~;" class="" style="width:123px">tu</td><td id="\Qhh" class="">(man)il faut</td><td id=";_wB" class=""><strong>achètes</strong></td><td id="DfS\" class=""><strong>paies</strong></td><td id="CpNZ" class=""><strong>bois</strong></td><td id="kNGu" class=""><strong>préfères</strong></td></tr><tr id="5d027057-d0dc-49e3-8e4b-be0faf263229"><td id="Sc~;" class="" style="width:123px">il/elle/on</td><td id="\Qhh" class="">—</td><td id=";_wB" class=""><strong>achète</strong></td><td id="DfS\" class=""><strong>paie</strong></td><td id="CpNZ" class=""><strong>boit</strong></td><td id="kNGu" class=""><strong>préfère</strong></td></tr><tr id="437f1626-83ed-4633-8a6f-e8c72d073d41"><td id="Sc~;" class="" style="width:123px">nous</td><td id="\Qhh" class="">—</td><td id=";_wB" class=""><strong>achetons</strong></td><td id="DfS\" class=""><strong>payons</strong></td><td id="CpNZ" class=""><strong>buvons</strong></td><td id="kNGu" class=""><strong>préférons</strong></td></tr><tr id="44fe42b0-d2f2-4c42-88c0-49211dd3f0fe"><td id="Sc~;" class="" style="width:123px">vous</td><td id="\Qhh" class="">—</td><td id=";_wB" class=""><strong>achetez</strong></td><td id="DfS\" class=""><strong>payez</strong></td><td id="CpNZ" class=""><strong>buvez</strong></td><td id="kNGu" class=""><strong>préférez</strong></td></tr><tr id="c673b634-8e57-4c18-b6fd-bb43626e5173"><td id="Sc~;" class="" style="width:123px">ils/elles</td><td id="\Qhh" class="">—</td><td id=";_wB" class=""><strong>achètent</strong></td><td id="DfS\" class=""><strong>paient</strong></td><td id="CpNZ" class=""><strong>boivent</strong></td><td id="kNGu" class=""><strong>préfèrent</strong></td></tr><tr id="b48a0a3a-029e-4809-887e-4d53d3ac4d21"><td id="Sc~;" class="" style="width:123px">p.c.</td><td id="\Qhh" class="">—</td><td id=";_wB" class=""><strong>acheté</strong></td><td id="DfS\" class=""><strong>payé</strong></td><td id="CpNZ" class=""><strong>bu</strong></td><td id="kNGu" class=""><strong>préféré</strong></td></tr></tbody></table><h3 id="4b48ec2c-7268-4c14-a10b-f94a3ae35fcc" class="">Mengenangaben</h3><div id="c3fe65df-747c-4b06-bdca-cfbb4943b207" class="collection-content"><h4 class="collection-title">adjektive</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Adverb + de als Mengenangabe</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Übersetzung</th></tr></thead><tbody><tr id="7268189b-03a4-4afc-a472-34238cda9133"><td class="cell-title"><a href="https://www.notion.so/assez-de-7268189b03a44afca47234238cda9133">assez de</a></td><td class="cell-yaBo">genug</td></tr><tr id="faf4c5fe-7a8e-4b28-9654-1d93a1b74e3c"><td class="cell-title"><a href="https://www.notion.so/beaucoup-de-faf4c5fe7a8e4b2896541d93a1b74e3c">beaucoup de</a></td><td class="cell-yaBo">viel</td></tr><tr id="b5d1c6b1-fd68-4b5a-98ea-a292f5b0e900"><td class="cell-title"><a href="https://www.notion.so/moins-de-b5d1c6b1fd684b5a98eaa292f5b0e900">moins de</a></td><td class="cell-yaBo">weniger</td></tr><tr id="b7e32513-91db-4790-ae5a-c3359ddc4c30"><td class="cell-title"><a href="https://www.notion.so/plus-de-b7e3251391db4790ae5ac3359ddc4c30">plus de</a></td><td class="cell-yaBo">mehr</td></tr><tr id="a69ed7ad-2483-442b-8a20-b3399944ab11"><td class="cell-title"><a href="https://www.notion.so/trop-de-a69ed7ad2483442b8a20b3399944ab11">trop de</a></td><td class="cell-yaBo">zu viel</td></tr><tr id="1d7fc83c-514e-453a-9f93-1b3797c63528"><td class="cell-title"><a href="https://www.notion.so/un-peu-de-1d7fc83c514e453a9f931b3797c63528">un peu de</a></td><td class="cell-yaBo">ein bisschen</td></tr></tbody></table></div><p id="52158f3e-a76a-4686-ab6e-3defb1b481e8" class="">Regeln:</p><ul id="cb93827f-dad4-4e92-bbe9-eacc9c9b5575" class="bulleted-list"><li style="list-style-type:disc"><strong>Verwendung</strong>: Bei konkreten Mengenangaben</li></ul><ul id="fe226cf4-64db-45c7-ad5c-472d3b50db94" class="bulleted-list"><li style="list-style-type:disc"><strong>Regel</strong>:<ul id="c1305a3b-9273-4b91-b45d-8044cfeace09" class="bulleted-list"><li style="list-style-type:circle">Nach Mengenangaben steht <strong>nur ‚de‘ oder ‚d’</strong></li></ul><ul id="4e2f58ed-1e70-497d-baff-33b0a9fa5f8c" class="bulleted-list"><li style="list-style-type:circle">und <strong>kein</strong> Artikel: du, de la, de l‘, des, …</li></ul></li></ul><ul id="fbaf4165-11af-4c47-b09b-b365872528cf" class="bulleted-list"><li style="list-style-type:disc"><strong>Bildung</strong>:<ul id="2c110f15-2ab5-4129-95c7-2fa6c58ae258" class="bulleted-list"><li style="list-style-type:circle">Mengenangaben (l’indication quantitative) werden mit ‚de‘ (nicht ‚des‘)</li></ul><ul id="7faa2d33-2855-484c-b585-34ac3a7ca555" class="bulleted-list"><li style="list-style-type:circle">und ohne Artikel gebildet.</li></ul></li></ul><ul id="1e6f64b7-d442-4c21-8241-9618be7acd95" class="bulleted-list"><li style="list-style-type:disc"><strong>Signalwörter</strong>:<ul id="f111e5fe-cd81-4bde-a54f-3ce3ab5ee577" class="bulleted-list"><li style="list-style-type:circle">assez</li></ul><ul id="994b5553-1d68-4e96-9091-a4822f2372f9" class="bulleted-list"><li style="list-style-type:circle">beaucoup</li></ul><ul id="5f0d327e-dc74-4cec-81e7-6cf31a8e6248" class="bulleted-list"><li style="list-style-type:circle">une boîte</li></ul><ul id="fd97b2f9-6d77-436a-93c2-57bab0b85862" class="bulleted-list"><li style="list-style-type:circle">combien</li></ul><ul id="94b18125-c71d-4335-bad2-0f9beb304175" class="bulleted-list"><li style="list-style-type:circle">un grand nombre</li></ul><ul id="900cc153-f8cd-43e5-af79-ed6cfc2c06e8" class="bulleted-list"><li style="list-style-type:circle">un groupe</li></ul><ul id="5dfa8541-07e4-4601-8a3a-f8e11f607398" class="bulleted-list"><li style="list-style-type:circle">un kilo, un gramme</li></ul><ul id="cf2c401e-5506-47d4-8f99-6e746b5d68e3" class="bulleted-list"><li style="list-style-type:circle">un million</li></ul><ul id="03c106de-6ca6-4cc1-869d-d10a78dde22c" class="bulleted-list"><li style="list-style-type:circle">moins</li></ul><ul id="19623e29-3752-424c-8070-1d7edf855188" class="bulleted-list"><li style="list-style-type:circle">un paquet</li></ul><ul id="5ac5052b-d692-4452-958d-c4f162e5a5ce" class="bulleted-list"><li style="list-style-type:circle">pas (mal)</li></ul><ul id="d2877936-60ba-407e-bef0-b6cee5fe4e6c" class="bulleted-list"><li style="list-style-type:circle">(un) peu</li></ul><ul id="a0058673-f40c-4e8e-b297-e0592f5bdc00" class="bulleted-list"><li style="list-style-type:circle">plus</li></ul><ul id="19f6139f-6c4f-44b4-96ae-0b493aadfa4c" class="bulleted-list"><li style="list-style-type:circle">trop</li></ul><ul id="c7155aac-d5ee-46b1-8246-50c88d80da45" class="bulleted-list"><li style="list-style-type:circle">un verre</li></ul><ul id="bbf656d5-7154-4b45-ba68-e1d614a77fbf" class="bulleted-list"><li style="list-style-type:circle"><strong>Beispiele</strong><ul id="20e2f864-e1e6-4691-91e8-da8770cdc36b" class="bulleted-list"><li style="list-style-type:square">J’ai assez d’eau, merci. (Ich habe genug Wasser, danke.)</li></ul><ul id="e4dfd472-1499-40e0-b162-048c92c02e88" class="bulleted-list"><li style="list-style-type:square">Il a beaucoup de livres à la maison. (Er hat viele Bücher zuhause.)</li></ul><ul id="ab7a3f1f-a865-42b3-b3f6-f3de545c8f2e" class="bulleted-list"><li style="list-style-type:square">Un groupe de dix personnes se raproche. (Eine Gruppe von zehn Personen nähert sich.)</li></ul></li></ul></li></ul><ul id="ec6ed816-1407-4c58-8239-e27faad2dbaa" class="bulleted-list"><li style="list-style-type:disc"><strong>Ausnahme</strong>:<ul id="eef6ac94-b2c9-4599-a9d6-77bc7bf36b25" class="bulleted-list"><li style="list-style-type:circle"><em>bien de la / bien du / bien des (viel ….)</em></li></ul><ul id="abfdcc97-5e80-41b8-bae6-e24c5c982e97" class="bulleted-list"><li style="list-style-type:circle"><em>la plupart des / la majorité</em> des (die Mehrheit)</li></ul><ul id="ff4b1761-d876-41ed-a48e-b84f386b5a8a" class="bulleted-list"><li style="list-style-type:circle"><em>la moitié</em> des (die Hälfte)</li></ul><ul id="0f7dd861-3c84-4a26-bfdd-0963e92c3acc" class="bulleted-list"><li style="list-style-type:circle"><em>une partie des (ein Teil)</em></li></ul><ul id="0462ebe8-10ee-4fac-8112-59e77aa56731" class="bulleted-list"><li style="list-style-type:circle"><strong>Beispiele:</strong><ul id="48b0214a-c09b-4c04-bda6-6a0f142f3043" class="bulleted-list"><li style="list-style-type:square">La plupart de mes copains sont fous. (Die Mehrheit meiner Freunde ist verrückt.)</li></ul><ul id="ffac79f4-9623-4dad-929c-9b5c990f3c57" class="bulleted-list"><li style="list-style-type:square">On garde une partie du repas pour demain. (Wir behalten einen Teil des Gerichts für morgen.)</li></ul><ul id="acbcde97-1b98-4ad4-90fc-a5e3098669d3" class="bulleted-list"><li style="list-style-type:square">Il y a bien des chaises chez toi. (Es gibt doch wohl Stühle bei dir zuhause.)</li></ul></li></ul></li></ul></div></article></body></html>
